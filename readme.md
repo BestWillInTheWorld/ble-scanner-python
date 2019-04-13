@@ -10,7 +10,7 @@ Eventually the data will get pushed somewhere, but for now it just prints to con
 
 ## Values captured:
 * Device name
-* Battery leve
+* Battery level
 * Temperature
 * Humidity
 
