@@ -8,6 +8,23 @@ This version is set up sepcifically to handle data from multiple Jinou JO-0628 B
 
 Eventually the data will get pushed somewhere, but for now it just prints to console.
 
+## Setup
+
+Assumes you have Python 3.6  already installed.
+
+### Using requirements.txt
+`pip install -r requirements.txt`
+
+### Manually
+
+`pip install pygatt`
+Also requires (apparently available only on 'nix environments):
+`pip install pexpect`
+
+Or use the GATTOOL backend which should auto-select bluetooth interface (I couldn't get this working out of the box):
+`pip install "pygatt[GATTTOOL]"`
+
+
 ## Values captured:
 * Device name
 * Battery level

@@ -3,24 +3,24 @@ import pygatt
 import sys
 import time 
 #    this app runs the equivalent of  `gatttool -b <device_id> --char-read <service_uuid>`
+DEVICE_1 = "FE:51:0A:AA:D1:AA"
+DEVICE_2 = "E5:0C:D5:30:71:2F"
 
 ## TODO: scan for devices matching pattern (e.g. manufacturer id or device name)
-DEVICE_1 = # device MAC address goes here
-DEVICE_2 = # device MAC address goes here
-
-# The BGAPI backend will attempt to auto-discover the serial device name of the
-# attached BGAPI-compatible USB adapter.
-# adapter = pygatt.BGAPIBackend()
 
 
 def scan_device(device_id, read_services):
     try:
+        # The BGAPI backend will attempt to auto-discover the serial device name of the
+        # attached BGAPI-compatible USB adapter.
+        # adapter = pygatt.BGAPIBackend()
+        #adapter = pygatt.GATTToolBackend(hci_device='hci1')
         adapter = pygatt.GATTToolBackend()
         adapter.start()
-        device = adapter.connect(address=device_id, 
-                                 timeout=10, 
-                                 auto_reconnect=True)  
-        return read_services(device)
+        ble_device = adapter.connect(address=device_id, 
+                                     timeout=10, 
+                                     auto_reconnect=True)  
+        return read_services(ble_device)
     except:
         err = sys.exc_info()
         print(err)
